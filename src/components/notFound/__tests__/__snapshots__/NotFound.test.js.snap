@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for NotFound component Should rendering without crash 1`] = `
+<h1>
+  Page notfound
+</h1>
+`;

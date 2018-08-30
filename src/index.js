@@ -1,11 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
+import Routes from "routes"
+
 import App from "containers/App"
+
+import "cfg/moment"
+import "cfg/style"
 
 ReactDOM.render(
     <App>
-        <h1>App</h1>
-    </App>
-    , document.getElementById("root")
+        <Routes/>
+    </App>,
+    document.getElementById("root")
 )
