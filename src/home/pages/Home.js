@@ -2,26 +2,36 @@ import PropTypes from "prop-types"
 import React, { Component, Fragment } from "react"
 import { connect } from "react-redux"
 
-import { addNewTask as addNewTaskSaga } from "../sagas"
-import { getAllTasks } from "../selectors"
+import { requestAddNewTask } from "../actions"
+import { getAllTasks, getLoading } from "../selectors"
 
 class Home extends Component {
+
+    static propTypes = {
+        addNewTask: PropTypes.func.isRequired,
+        loading: PropTypes.bool.isRequired,
+        tasks: PropTypes.arrayOf(PropTypes.string).isRequired
+    }
 
     state = {
         task: ""
     }
 
     render() {
-        const { tasks } = this.props
+        const { loading, tasks } = this.props
         const { task } = this.state
         return (
             <Fragment>
                 <h1>Home</h1>
-                <input onChange={ this.handleChange } value={ task }/>
-                <button onClick={ () => this.addNewTask(task) } type="button">Add new task</button>
-                <ul>
-                    { tasks.map(t => <li key={ t }>{ t }</li>) }
-                </ul>
+                { loading ? (<h2>Loading...</h2>) : (
+                    <Fragment>
+                        <input onChange={ this.handleChange } value={ task }/>
+                        <button onClick={ () => this.addNewTask(task) } type="button">Add new task</button>
+                        <ul>
+                            { tasks.map(t => <li key={ t }>{ t }</li>) }
+                        </ul>
+                    </Fragment>
+                ) }
             </Fragment>
         )
     }
@@ -36,17 +46,13 @@ class Home extends Component {
 
 }
 
-Home.propTypes = {
-    addNewTask: PropTypes.func.isRequired,
-    tasks: PropTypes.arrayOf(PropTypes.string).isRequired
-}
-
-const mapDispatchToProps = dispatch => ({
-    addNewTask: task => dispatch(addNewTaskSaga(task))
+const mapStateToProps = state => ({
+    loading: getLoading(state),
+    tasks: getAllTasks(state)
 })
 
-const mapStateToProps = state => ({
-    tasks: getAllTasks(state)
+const mapDispatchToProps = dispatch => ({
+    addNewTask: task => dispatch(requestAddNewTask(task))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

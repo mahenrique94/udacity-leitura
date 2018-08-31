@@ -1,3 +1,3 @@
-const addNewTask = task => task
+const save = task => task
 
-export { addNewTask }
+export { save }

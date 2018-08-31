@@ -59,7 +59,6 @@
         "max-len": [ "error", { "code": 135 } ],
         "max-lines": [ "error", 200 ],
         "max-params": [ "error", 5 ],
-        "new-cap": [ "error", { "newIsCap": true } ],
         "new-parens": "error",
         "no-alert": "error",
         "no-array-constructor": "error",
