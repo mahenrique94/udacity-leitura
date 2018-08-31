@@ -1,13 +1,21 @@
-import React from "react"
-import renderer from "react-test-renderer"
+import React from 'react'
+import renderer from 'react-test-renderer'
 
-import Home from "../pages/Home"
+import configureStore from 'redux-mock-store'
 
-describe("Tests for Home component", () => {
+import Home from '../pages/Home'
 
-    it("Should rendering without crash", () => {
+import { Record } from 'immutable'
+
+describe('Tests for Home component', () => {
+
+    const initialState = new Record({})()
+    const mockStore = configureStore([])
+    const store = mockStore(initialState)
+
+    it('Should rendering without crash', () => {
         const tree = renderer.create(
-            <Home/>
+            <Home store={ store }/>
         ).toJSON()
         expect(tree).toMatchSnapshot()
     })

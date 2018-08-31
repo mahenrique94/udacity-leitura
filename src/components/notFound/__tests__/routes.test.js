@@ -1,10 +1,10 @@
-import { routes } from "../routes"
+import { routes } from '../routes'
 
-import NotFound from "../NotFound"
+import NotFound from '../NotFound'
 
-describe("Tests for routes of the NotFound component", () => {
+describe('Tests for routes of the NotFound component', () => {
 
-    it("Should each match routes with your respective value", () => {
+    it('Should each match routes with your respective value', () => {
         const expectedRoutes = [
             { component: NotFound }
         ]

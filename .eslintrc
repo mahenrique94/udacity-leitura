@@ -123,7 +123,7 @@
         "prefer-spread": "error",
         "prefer-template": "error",
         "quote-props": [ "error", "as-needed" ],
-        "quotes": [ "error", "double" ],
+        "quotes": [ "error", "single" ],
         "radix": "error",
         "react/button-has-type": "error",
         "react/default-props-match-prop-types": "error",

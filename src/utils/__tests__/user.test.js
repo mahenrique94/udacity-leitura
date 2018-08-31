@@ -1,8 +1,8 @@
-import { getToken } from "../user"
+import { getToken } from '../user'
 
-describe("Tests for user utils", () => {
+describe('Tests for user utils', () => {
 
-    it("Smoke tests", () => {
+    it('Smoke tests', () => {
         expect(getToken).toBeDefined()
     })
 

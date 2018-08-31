@@ -1,16 +1,16 @@
-import React from "react"
+import React from 'react'
 
-import { ConnectedRouter } from "connected-react-router/immutable"
-import { Provider } from "react-redux"
-import { Route, Switch } from "react-router"
+import { ConnectedRouter } from 'connected-react-router/immutable'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router'
 
-import { combineLinkedRoutes, combineRoutes } from "utils/routes"
+import { combineLinkedRoutes, combineRoutes } from 'utils/routes'
 
-import { routes as homeRoutes } from "@/home/routes"
-import { routes as notFoundRoutes } from "components/notFound/routes"
+import { routes as homeRoutes } from '@/home/routes'
+import { routes as notFoundRoutes } from 'components/notFound/routes'
 
-import { history } from "./history"
-import { store } from "./store"
+import { history } from './history'
+import { store } from './store'
 
 const systemRoutes = combineRoutes(
     homeRoutes,

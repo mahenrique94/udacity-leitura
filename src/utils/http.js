@@ -1,4 +1,4 @@
-import { CODES } from "@/constants/HTTP"
+import { CODES } from '@/constants/HTTP'
 
 const handleError = error => console.error(error)
 const handleSuccess = ({ data }) => data

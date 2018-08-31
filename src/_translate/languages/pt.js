@@ -2,7 +2,7 @@ const messages = {
     pt: {
         translations: {
             titles: {
-                app: "Leitura"
+                app: 'Leitura'
             }
         }
     }

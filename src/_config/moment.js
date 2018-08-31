@@ -1,1 +1,1 @@
-import "moment/locale/pt-br"
+import 'moment/locale/pt-br'

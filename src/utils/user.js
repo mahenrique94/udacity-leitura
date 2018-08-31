@@ -1,4 +1,4 @@
-import { generateRandomNum } from "./number"
+import { generateRandomNum } from './number'
 
 const CODED_BASE = 64
 const MAX_CHAR_CODE = 125
@@ -10,7 +10,7 @@ const getToken = () => {
         const randomNum = generateRandomNum(MIN_CHAR_CODE, MAX_CHAR_CODE)
         token.push(String.fromCharCode(randomNum))
     }
-    return token.join("")
+    return token.join('')
 }
 
 export { getToken }

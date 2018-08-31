@@ -1,10 +1,10 @@
-import { generateRandomNum } from "../number"
+import { generateRandomNum } from '../number'
 
-describe("Tests for number utils", () => {
+describe('Tests for number utils', () => {
 
     const GENERATE_NUMBER = 1
 
-    it("Smoke tests", () => {
+    it('Smoke tests', () => {
         expect(generateRandomNum).toBeDefined()
     })
 

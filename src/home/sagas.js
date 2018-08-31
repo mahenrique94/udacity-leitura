@@ -1,10 +1,10 @@
-import { actions } from "constants/ActionsTypes"
+import { actions } from 'constants/ActionsTypes'
 
-import { delay } from "redux-saga"
-import { all, call, put, takeLatest } from "redux-saga/effects"
+import { delay } from 'redux-saga'
+import { all, call, put, takeLatest } from 'redux-saga/effects'
 
-import { addNewTask as addNewTaskAction } from "./actions"
-import { save } from "./api"
+import { addNewTask as addNewTaskAction } from './actions'
+import { save } from './api'
 
 const ONE_SECOND = 1000
 

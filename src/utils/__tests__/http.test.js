@@ -1,8 +1,8 @@
-import { handleError, handleSuccess, responseWasOK } from "../http"
+import { handleError, handleSuccess, responseWasOK } from '../http'
 
-describe("Tests for http utils", () => {
+describe('Tests for http utils', () => {
 
-    it("Smoke tests", () => {
+    it('Smoke tests', () => {
         expect(handleError).toBeDefined()
         expect(handleSuccess).toBeDefined()
         expect(responseWasOK).toBeDefined()

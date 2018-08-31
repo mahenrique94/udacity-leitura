@@ -1,4 +1,4 @@
-import NotFound from "./NotFound"
+import NotFound from './NotFound'
 
 const routes = [
     { component: NotFound }

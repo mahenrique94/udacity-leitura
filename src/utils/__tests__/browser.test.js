@@ -1,8 +1,8 @@
-import { navigateTo } from "../browser"
+import { navigateTo } from '../browser'
 
-describe("Tests for browser utils", () => {
+describe('Tests for browser utils', () => {
 
-    it("Smoke tests", () => {
+    it('Smoke tests', () => {
         expect(navigateTo).toBeDefined()
     })
 

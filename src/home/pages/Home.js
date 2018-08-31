@@ -1,9 +1,9 @@
-import PropTypes from "prop-types"
-import React, { Component, Fragment } from "react"
-import { connect } from "react-redux"
+import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 
-import { requestAddNewTask } from "../actions"
-import { getAllTasks, getLoading } from "../selectors"
+import { requestAddNewTask } from '../actions'
+import { getAllTasks, getLoading } from '../selectors'
 
 class Home extends Component {
 
@@ -14,7 +14,7 @@ class Home extends Component {
     }
 
     state = {
-        task: ""
+        task: ''
     }
 
     render() {
@@ -39,7 +39,7 @@ class Home extends Component {
     addNewTask = task => {
         const { addNewTask } = this.props
         addNewTask(task)
-        this.setState({ task: "" })
+        this.setState({ task: '' })
     }
 
     handleChange = e => this.setState({ task: e.target.value })

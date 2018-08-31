@@ -1,17 +1,17 @@
-import logger from "redux-logger"
+import logger from 'redux-logger'
 
-import createSagaMiddleware from "redux-saga"
+import createSagaMiddleware from 'redux-saga'
 
-import { applyMiddleware, compose, createStore } from "redux"
-import { connectRouter, routerMiddleware } from "connected-react-router/immutable"
-import { composeWithDevTools } from "redux-devtools-extension"
+import { applyMiddleware, compose, createStore } from 'redux'
+import { connectRouter, routerMiddleware } from 'connected-react-router/immutable'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { history } from "./history"
-import { reducers } from "./reducers"
+import { history } from './history'
+import { reducers } from './reducers'
 
-import { homeSaga } from "@/home/sagas"
+import { homeSaga } from '@/home/sagas'
 
-import { Map } from "immutable"
+import { Map } from 'immutable'
 
 const sagaMiddleware = createSagaMiddleware()
 

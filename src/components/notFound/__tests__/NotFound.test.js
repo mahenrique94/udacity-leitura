@@ -1,11 +1,11 @@
-import React from "react"
-import renderer from "react-test-renderer"
+import React from 'react'
+import renderer from 'react-test-renderer'
 
-import NotFound from "../NotFound"
+import NotFound from '../NotFound'
 
-describe("Tests for NotFound component", () => {
+describe('Tests for NotFound component', () => {
 
-    it("Should rendering without crash", () => {
+    it('Should rendering without crash', () => {
         const tree = renderer.create(
             <NotFound/>
         ).toJSON()
