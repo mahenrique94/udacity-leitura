@@ -1,13 +1,13 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Home from '../pages/Home'
+import Menu from '../menu/Menu'
 
-describe('Tests for Home component', () => {
+describe('Tests for Menu component', () => {
 
     it('Should rendering without crash', () => {
         const tree = renderer.create(
-            <Home/>
+            <Menu/>
         ).toJSON()
         expect(tree).toMatchSnapshot()
     })

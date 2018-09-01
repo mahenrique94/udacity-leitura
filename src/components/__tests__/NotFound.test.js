@@ -1,13 +1,13 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Home from '../pages/Home'
+import NotFound from '../notFound/NotFound'
 
-describe('Tests for Home component', () => {
+describe('Tests for NotFound component', () => {
 
     it('Should rendering without crash', () => {
         const tree = renderer.create(
-            <Home/>
+            <NotFound/>
         ).toJSON()
         expect(tree).toMatchSnapshot()
     })

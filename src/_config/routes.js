@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router'
 import { combineLinkedRoutes, combineRoutes } from 'utils/routes'
 
 import { routes as homeRoutes } from '@/home/routes'
+import { routes as postsRoutes } from '@/posts/routes'
 import { routes as notFoundRoutes } from 'components/notFound/routes'
 
 import { history } from './history'
@@ -14,6 +15,7 @@ import { store } from './store'
 
 const systemRoutes = combineRoutes(
     homeRoutes,
+    postsRoutes,
     notFoundRoutes
 )
 

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Menu component Should rendering without crash 1`] = `
+<nav
+  className="navbar navbar-expand-md navbar-light navbar-dark bg-dark"
+  data-cy="menu"
+>
+  <a
+    className="navbar-brand"
+    data-cy="menu-title"
+  >
+    <a
+      href="/"
+    >
+      menu.title
+    </a>
+  </a>
+  <button
+    className="navbar-toggler"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="navbar-toggler-icon"
+    />
+  </button>
+  <div
+    className="collapse navbar-collapse"
+    style={Object {}}
+  >
+    <ul
+      className="ml-auto navbar-nav"
+      data-cy="nav"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          onClick={[Function]}
+        >
+          <a
+            href="/"
+          >
+            menu.posts
+          </a>
+        </a>
+      </li>
+      <li
+        className="dropdown nav-item"
+        data-cy="nav-languages"
+        onKeyDown={[Function]}
+      >
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle nav-link"
+          data-cy="nav-languages-link"
+          href="#"
+          onClick={[Function]}
+        >
+          menu.language
+        </a>
+        <div
+          aria-hidden={true}
+          className="dropdown-menu dropdown-menu-right"
+          role="menu"
+          tabIndex="-1"
+        >
+          <button
+            className="dropdown-item"
+            data-cy="nav-languages-english"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            languages.english
+          </button>
+          <div
+            className="dropdown-divider"
+            onClick={[Function]}
+            tabIndex="-1"
+          />
+          <button
+            className="dropdown-item"
+            data-cy="nav-languages-portuguese"
+            onClick={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            languages.portuguese
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

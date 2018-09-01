@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux-immutable'
 
-import { reducers as homeReducer } from '@/home/reducers'
+import { reducer as notificationsReducer } from 'react-notification-system-redux'
+
+import { reducers as postsReducer } from '@/posts/reducers'
 
 const reducers = combineReducers({
-    homeReducer
+    notificationsReducer,
+    postsReducer
 })
 
 export { reducers }

@@ -9,7 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { history } from './history'
 import { reducers } from './reducers'
 
-import { homeSaga } from '@/home/sagas'
+import { sagas } from './sagas'
 
 import { Map } from 'immutable'
 
@@ -31,6 +31,6 @@ const store = createStore(
     )
 )
 
-sagaMiddleware.run(homeSaga)
+sagaMiddleware.run(sagas)
 
 export { store }

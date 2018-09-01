@@ -1,7 +1,22 @@
 import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
 
-const App = ({ children }) => <Fragment>{ children }</Fragment>
+import { Container } from 'reactstrap'
+
+import Menu from 'components/menu/Menu'
+import Notifications from 'components/notifications/Notifications'
+
+const App = ({ children }) => (
+
+    <Fragment>
+        <Notifications/>
+        <Menu/>
+        <Container>
+            { children }
+        </Container>
+    </Fragment>
+
+)
 
 App.propTypes = {
     children: PropTypes.oneOfType([
