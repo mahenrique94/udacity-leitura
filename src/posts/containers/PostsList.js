@@ -27,7 +27,7 @@ class PostsList extends Component {
         const { list, loading } = this.props
         return (
             <App>
-                <PostsListPage/>
+                <PostsListPage list={ list } loading={ loading }/>
             </App>
         )
     }

@@ -35,6 +35,6 @@ class Notifications extends Component {
 }
 
 const mapStateToProps = state => ({ notifications: getNotifications(state) })
-const mapDispatchToProps = dispatch => ({ removeAll: () => dispatch(Notifications.removeAll()) })
+const mapDispatchToProps = dispatch => ({ removeAll: () => dispatch(NotificationsSystem.removeAll()) })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications)

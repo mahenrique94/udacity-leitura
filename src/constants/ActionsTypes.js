@@ -1,6 +1,6 @@
 const actions = {
-    POSTS_LIST: 'POSTS_LIST',
-    POSTS_REQUEST_LIST: 'POSTS_REQUEST_LIST'
+    POSTS_GET_ALL: 'POSTS_GET_ALL',
+    POSTS_REQUEST_GET_ALL: 'POSTS_REQUEST_GET_ALL'
 }
 
 export { actions }

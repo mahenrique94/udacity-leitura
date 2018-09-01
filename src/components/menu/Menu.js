@@ -6,7 +6,7 @@ import MenuLinks from './MenuLinks'
 import MenuTitle from './MenuTitle'
 
 const Menu = () => (
-    <Navbar color="dark" dark data-cy="menu" expand="md" light>
+    <Navbar className="mb-5" color="dark" dark data-cy="menu" expand="md" light>
         <MenuTitle/>
         <MenuLinks/>
     </Navbar>

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Tests for Link component Should rendering without crash 1`] = `
-<a
-  href="/"
->
-  Test
-</a>
-`;

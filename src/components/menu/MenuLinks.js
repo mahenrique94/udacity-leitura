@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
+import { NavLink } from 'react-router-dom'
+
 import i18n from 'i18n'
 
 import { routes } from 'routes'
@@ -15,8 +17,6 @@ import {
     DropdownItem
 } from 'reactstrap'
 
-import Link from 'components/Link'
-
 class MenuLinks extends Component {
 
     state = {
@@ -31,7 +31,9 @@ class MenuLinks extends Component {
                 <Collapse isOpen={ isOpen } navbar>
                     <Nav className="ml-auto" data-cy="nav" navbar>
                         <NavItem>
-                            <Link className="nav-link" data-cy="nav-link-posts" to={ routes.postsList }>{ i18n.t('menu.posts') }</Link>
+                            <NavLink className="nav-link" data-cy="nav-link-posts" to={ routes.postsList }>
+                                { i18n.t('menu.posts') }
+                            </NavLink>
                         </NavItem>
                         <UncontrolledDropdown data-cy="nav-languages" inNavbar nav>
                             <DropdownToggle caret data-cy="nav-languages-link" nav>{ i18n.t('menu.language') }</DropdownToggle>

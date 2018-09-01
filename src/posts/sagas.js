@@ -1,23 +1,30 @@
 import { actions } from 'constants/ActionsTypes'
 
-import { all, call, put, takeLatest } from 'redux-saga/effects'
+import _ from 'lodash'
 
-import { list } from './api'
+import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { List } from 'immutable'
+
+import { getAll as getAllAPI } from './api'
 
 import { getAll } from './actions'
 
-function* listRequested() {
-    const posts = yield call(list)
-    yield put(getAll(posts))
+function* getAllRequested() {
+    const posts = yield call(getAllAPI)
+    if (_.isUndefined(posts)) {
+        yield put(getAll(List()))
+    } else {
+        yield put(getAll(posts))
+    }
 }
 
-function* watchRequestList() {
-    yield takeLatest(actions.POSTS_REQUEST_LIST, listRequested)
+function* watchRequestGetAll() {
+    yield takeLatest(actions.POSTS_REQUEST_GET_ALL, getAllRequested)
 }
 
 function* sagas() {
     yield all([
-        watchRequestList()
+        watchRequestGetAll()
     ])
 }
 

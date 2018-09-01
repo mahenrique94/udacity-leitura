@@ -6,7 +6,7 @@ import { handleError, responseWasOK } from 'utils/http'
 
 import Post from './Post'
 
-const list = () =>
+const getAll = () =>
     http.get('/posts')
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
@@ -14,8 +14,8 @@ const list = () =>
                 data.forEach(item => posts = posts.push(new Post(item)))
                 return posts
             }
-            return []
+            return List()
         })
         .catch(handleError)
 
-export { list }
+export { getAll }
