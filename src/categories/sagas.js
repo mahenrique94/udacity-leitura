@@ -12,16 +12,16 @@ import { getAll } from './actions'
 import { getAction } from 'utils/actions'
 
 function* getAllRequested() {
-    const posts = yield call(getAllAPI)
-    if (_.isUndefined(posts)) {
+    const categories = yield call(getAllAPI)
+    if (_.isUndefined(categories)) {
         yield put(getAll(List()))
     } else {
-        yield put(getAll(posts))
+        yield put(getAll(categories))
     }
 }
 
 function* watchRequestGetAll() {
-    yield takeLatest(getAction(actions.POSTS_REQUEST_GET_ALL), getAllRequested)
+    yield takeLatest(getAction(actions.CATEGORIES_REQUEST_GET_ALL), getAllRequested)
 }
 
 function* sagas() {

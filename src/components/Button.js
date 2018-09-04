@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 
 import { Link } from 'react-router-dom'
@@ -6,7 +7,30 @@ import { Link } from 'react-router-dom'
 const BUTTON_SIZE = '50px'
 const SIZES_GAP = '30px'
 
-const StyledLink = styled(Link)`
+const Button = ({ children, className, to }) => <Link className={ className } to={ to }>{ children }</Link>
+
+Button.defaultProps = {
+    bottom: false,
+    float: false,
+    position: false,
+    right: false
+}
+
+Button.propTypes = {
+    bottom: PropTypes.bool,
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+        PropTypes.string
+    ]).isRequired,
+    className: PropTypes.string.isRequired,
+    float: PropTypes.bool,
+    position: PropTypes.bool,
+    right: PropTypes.bool,
+    to: PropTypes.string.isRequired
+}
+
+const StyledButton = styled(Button)`
     background: #0099FF;
     ${({ float }) => float ? 'border-radius: 100%;' : ''}
     ${({ bottom }) => bottom ? 'bottom: 25px;' : ''}
@@ -24,17 +48,4 @@ const StyledLink = styled(Link)`
     }
 `
 
-StyledLink.defaultProps = {
-    float: false,
-    link: ''
-}
-
-StyledLink.propTypes = {
-    bottom: PropTypes.bool,
-    float: PropTypes.bool,
-    position: PropTypes.bool,
-    right: PropTypes.bool,
-    to: PropTypes.string
-}
-
-export default StyledLink
+export default StyledButton

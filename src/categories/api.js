@@ -4,17 +4,17 @@ import http from 'http'
 
 import { handleError, responseWasOK } from 'utils/http'
 
-import Post from './Post'
+import Category from './Category'
 
 const getAll = () =>
-    http.get('/posts')
-        .then(({ data, status }) => {
+    http.get('/categories')
+        .then(({ data: { categories: data }, status }) => {
             if (responseWasOK(status)) {
-                let posts = List()
+                let categories = List()
                 if (Array.isArray(data)) {
-                    data.forEach(item => posts = posts.push(new Post(item)))
+                    data.forEach(item => categories = categories.push(new Category(item)))
                 }
-                return posts
+                return categories
             }
             return List()
         })
