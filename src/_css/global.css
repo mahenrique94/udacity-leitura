@@ -1,0 +1,7 @@
+.is-show {
+    display: block;
+}
+
+.simplemde__editor.is-invalid .CodeMirror, .simplemde__editor.is-invalid .editor-toolbar {
+    border-color: #dc3545;
+}

@@ -14,8 +14,13 @@ const If = ({ children, condition, el }) => {
     if (_.isFunction(el)) {
         return React.createElement(el)
     }
+
     return el
 
+}
+
+If.defaultProps = {
+    el: null
 }
 
 If.propTypes = {
@@ -31,7 +36,7 @@ If.propTypes = {
         PropTypes.func,
         PropTypes.object,
         PropTypes.string
-    ]).isRequired
+    ])
 }
 
 export default If

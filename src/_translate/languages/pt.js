@@ -37,7 +37,9 @@ const messages = {
             notifications: {
                 messages: {
                     api: {
-                        posts: {}
+                        posts: {
+                            saved: 'Um novo post foi salvo com sucesso'
+                        }
                     }
                 },
                 titles: {

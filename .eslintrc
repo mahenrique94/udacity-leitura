@@ -130,7 +130,6 @@
         "react/forbid-prop-types": [ "error", {
             "forbid": [ "any" ]
         }],
-        "react/jsx-closing-bracket-location": "error",
         "react/jsx-closing-tag-location": "error",
         "react/jsx-curly-spacing" : [ "error", {
             "when" : "always",
@@ -162,7 +161,32 @@
                 "lifecycle",
                 "render",
                 "everything-else"
-            ]
+            ],
+            "groups": {
+                "lifecycle": [
+                    "defaultProps",
+                    "propTypes",
+                    "contextTypes",
+                    "childContextTypes",
+                    "mixins",
+                    "statics",
+                    "state",
+                    "getDefaultProps",
+                    "constructor",
+                    "getInitialState",
+                    "getChildContext",
+                    "getDerivedStateFromProps",
+                    "componentWillMount",
+                    "componentDidMount",
+                    "componentWillReceiveProps",
+                    "shouldComponentUpdate",
+                    "componentWillUpdate",
+                    "getSnapshotBeforeUpdate",
+                    "componentDidUpdate",
+                    "componentDidCatch",
+                    "componentWillUnmount"
+                ]
+            }
         }],
         "react/sort-prop-types": "error",
         "react/style-prop-object": "error",

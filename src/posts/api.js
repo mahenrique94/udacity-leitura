@@ -6,8 +6,10 @@ import { handleError, responseWasOK } from 'utils/http'
 
 import Post from './Post'
 
+const POSTS_PATH = '/posts'
+
 const getAll = () =>
-    http.get('/posts')
+    http.get(POSTS_PATH)
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
                 let posts = List()
@@ -20,4 +22,10 @@ const getAll = () =>
         })
         .catch(handleError)
 
-export { getAll }
+const save = values => {
+    values.timestamp = new Date()
+    http.post(POSTS_PATH, values)
+        .then(({ data }) => data)
+}
+
+export { getAll, save }

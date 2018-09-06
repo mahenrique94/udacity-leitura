@@ -1,10 +1,11 @@
+import _ from 'lodash'
 import produce from 'immer'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 
 import { connect } from 'react-redux'
 
-import i18n from 'i18n'
+import { requestSave } from '../actions'
 
 import { routes } from 'routes'
 
@@ -36,15 +37,29 @@ class PostsForm extends Component {
         save: PropTypes.func.isRequired
     }
 
-    state = produce({}, newState => ({ body: '' }))
+    state = produce({}, () => ({ body: '' }))
+
+    constructor(props) {
+        super(props)
+
+        this.form = React.createRef()
+    }
 
     render() {
-        const { categories, post, save } = this.props
+        const { categories, post } = this.props
+        const { body: bodyValue } = this.state
         const { author, body, category, id, timestamp, title } = FIELDS
         return (
             <Fragment>
-                <Form cancelTo="postsList" initialValue={ post } onSubmit={ save } validate={ this.validate }>
+                <Form
+                    cancelTo="postsList"
+                    initialValue={ post }
+                    onSubmit={ this.handleSubmit }
+                    ref={ this.form }
+                    validate={ this.validate }
+                >
                     <FormData { ...id }/>
+                    <FormData { ...body }/>
                     <FormData { ...timestamp }/>
                     <Row>
                         <Col xs={ 12 }>
@@ -53,7 +68,7 @@ class PostsForm extends Component {
                     </Row>
                     <Row>
                         <Col md={ 6 } xs={ 12 }>
-                            <FormData { ...category } options={ categories }/>
+                            <FormData { ...category } optionText="name" optionValue="name" options={ categories }/>
                         </Col>
                         <Col md={ 6 } xs={ 12 }>
                             <FormData { ...author }/>
@@ -61,17 +76,18 @@ class PostsForm extends Component {
                     </Row>
                     <Row>
                         <Col xs={ 12 }>
-                            <SimpleMDE
-                                id={ body.id }
-                                label={ i18n.t(`label.${body.name}`) }
-                                onChange={ this.handleBodyChange }
-                                options={ {
-                                    autofocus: false,
-                                    spellChecker: false,
-                                    status: false,
-                                    tabSize: 4
-                                } }
-                            />
+                            <FormData { ...body }>
+                                <SimpleMDE
+                                    className={ `simplemde__editor ${_.isEmpty(bodyValue) ? 'is-invalid' : ''}` }
+                                    onChange={ this.handleBodyChange }
+                                    options={ {
+                                        autofocus: false,
+                                        spellChecker: false,
+                                        status: false,
+                                        tabSize: 4
+                                    } }
+                                />
+                            </FormData>
                         </Col>
                     </Row>
                 </Form>
@@ -82,16 +98,28 @@ class PostsForm extends Component {
         )
     }
 
-    handleBodyChange = value => this.setState(produce(newState => {
-        newState.body = value
-    }))
+    handleBodyChange = value => {
+        this.form.current.finalForm.current.form.change('body', value)
+        this.setState(
+            produce(draftState => {
+                draftState.body = value
+            })
+        )
+    }
+
+    handleSubmit = values => {
+        const { save } = this.props
+        const { body } = this.state
+        const data = { ...values, body }
+        save(data)
+    }
 
     validate = values => validateFields(values, FIELDS)
 
 }
 
 const mapDispatchToProps = {
-    save: values => console.log(values)
+    save: values => requestSave(values)
 }
 
 export default connect(null, mapDispatchToProps)(PostsForm)

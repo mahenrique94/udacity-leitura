@@ -1,5 +1,6 @@
 const types = {
-    HIDDEN: 'hidden'
+    HIDDEN: 'hidden',
+    INPUT: 'input'
 }
 
 export { types }

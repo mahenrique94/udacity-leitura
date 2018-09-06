@@ -9,7 +9,7 @@ const FIELDS = {
         required: true,
         type: 'text'
     },
-    body: { component: 'input', 'data-cy': 'input-body', id: 'body', name: 'body', required: true },
+    body: { component: 'input', 'data-cy': 'input-body', id: 'body', name: 'body', required: true, type: 'hidden' },
     category: { component: 'select', 'data-cy': 'input-category', id: 'category', name: 'category', required: true },
     id: { component: 'input', 'data-cy': 'input-id', id: 'id', name: 'id', type: 'hidden' },
     timestamp: { component: 'input', 'data-cy': 'input-timestamp', id: 'timestamp', name: 'timestamp', type: 'hidden' },
