@@ -29,11 +29,11 @@ function* getAllRequested() {
 
 function* saveRequested({ payload }) {
     yield call(saveAPI, payload)
+    yield navigateTo(routes.postsList)
     yield put(Notifications.success({
         message: i18n.t('notifications.messages.api.posts.saved'),
         title: i18n.t('notifications.titles.success')
     }))
-    yield navigateTo(routes.postsList)
 }
 
 function* watchRequestGetAll() {

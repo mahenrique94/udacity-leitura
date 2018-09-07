@@ -11,7 +11,7 @@ const App = ({ children }) => (
     <Fragment>
         <Notifications/>
         <Menu/>
-        <Container>
+        <Container className="mb-5">
             { children }
         </Container>
     </Fragment>

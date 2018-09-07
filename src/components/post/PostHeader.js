@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 import { Link } from 'react-router-dom'
 
-import { routes } from 'routes'
-
 import { Media } from 'reactstrap'
 
+import Hash from 'components/Hash'
+import Icon from 'components/Icon'
 import PostCommentsCount from './PostCommentsCount'
 
 import PostModel from '@/posts/Post'
@@ -19,15 +19,17 @@ const Header = styled.header`
 
 const PostHeader = ({ post }) => {
 
-    const { author, commentCount, date, id, title } = post
+    const { author, category, commentCount, date, id, title } = post
     return (
         <Header>
             <Media heading>
-                <Link to={ `${routes.postsList}/${id}` }>{ title }</Link>
+                <Link to={ `${category}/${id}` }><Hash/>{ title }</Link>
             </Media>
             <time dateTime={ date }>{ date }</time>
             <small className="text-muted">{ author }</small>
-            <PostCommentsCount>{ commentCount }</PostCommentsCount>
+            <PostCommentsCount>
+                { commentCount }<Icon hasLeftSpace icon="comments" size="xs"/>
+            </PostCommentsCount>
         </Header>
     )
 

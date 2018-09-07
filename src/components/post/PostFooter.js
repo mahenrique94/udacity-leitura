@@ -6,11 +6,7 @@ import { Link } from 'react-router-dom'
 
 import i18n from 'i18n'
 
-import { routes } from 'routes'
-
-import StarRatingComponent from 'react-star-rating-component'
-
-import { Badge } from 'reactstrap'
+import PostActions from './PostActions'
 
 import PostModel from '@/posts/Post'
 
@@ -22,17 +18,12 @@ const Footer = styled.footer`
 
 const PostHeader = ({ post }) => {
 
-    const { category, id, voteScore } = post
+    const { category, id } = post
     return (
         <Footer>
-            <Link className="btn btn-info  btn-sm mb-2" to={ `${routes.postsList}/${id}` }>{ i18n.t('buttons.keep.reading') }</Link>
-            <Badge color="primary">{ category }</Badge>
-            <StarRatingComponent
-                name="voteScore"
-                onStarClick={ () => console.log('Cliquei') }
-                starCount={ 10 }
-                value={ voteScore }
-            />
+            <Link className="btn btn-info  btn-sm mb-2" to={ `${category}/${id}` }>{ i18n.t('buttons.keep.reading') }</Link>
+            <Link className="badge badge-primary" to={ category }>{ category }</Link>
+            <PostActions post={ post }/>
         </Footer>
     )
 

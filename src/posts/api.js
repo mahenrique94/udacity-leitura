@@ -2,6 +2,7 @@ import { List } from 'immutable'
 
 import http from 'http'
 
+import { not } from 'utils/functions'
 import { handleError, responseWasOK } from 'utils/http'
 
 import Post from './Post'
@@ -14,7 +15,7 @@ const getAll = () =>
             if (responseWasOK(status)) {
                 let posts = List()
                 if (Array.isArray(data)) {
-                    data.forEach(item => posts = posts.push(new Post(item)))
+                    data.filter(({ deleted }) => not(deleted)).forEach(item => posts = posts.push(new Post(item)))
                 }
                 return posts
             }

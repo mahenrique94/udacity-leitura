@@ -21,6 +21,7 @@ const messages = {
                 author: 'Autor',
                 body: 'Conteúdo',
                 category: 'Categoria',
+                orderBy: 'Ordenar por',
                 title: 'Título'
             },
             languages: {
@@ -34,6 +35,13 @@ const messages = {
                 posts: 'Posts',
                 title: 'leitura'
             },
+            messages: {
+                confirm: {
+                    api: {
+                        delete: 'Você tem certeza que deseja deletar o registro? Essa operação é PERMANENTE!'
+                    }
+                }
+            },
             notifications: {
                 messages: {
                     api: {
@@ -46,6 +54,11 @@ const messages = {
                     error: 'Erro',
                     success: 'Sucesso'
                 }
+            },
+            texts: {
+                date: 'Data',
+                score: 'Pontuação',
+                selectOrder: 'Selecione uma ordenação'
             },
             titles: {
                 app: 'Leitura'
