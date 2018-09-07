@@ -9,14 +9,25 @@ import i18n from 'i18n'
 
 import { routes } from 'routes'
 
-import { getAll as getAllAPI, save as saveAPI } from './api'
+import {
+    edit as editAPI,
+    getAll as getAllAPI,
+    getAllByCategory as getAllByCategoryAPI,
+    remove as removeAPI,
+    save as saveAPI
+} from './api'
 
-import { getAll } from './actions'
+import { edit, getAll, getAllByCategory, remove } from './actions'
 
 import { getAction } from 'utils/actions'
 import { navigateTo } from 'utils/browser'
 
 import Notifications from 'react-notification-system-redux'
+
+function* editRequested({ payload }) {
+    const post = yield call(editAPI, payload)
+    yield put(edit(post))
+}
 
 function* getAllRequested() {
     const posts = yield call(getAllAPI)
@@ -25,6 +36,20 @@ function* getAllRequested() {
     } else {
         yield put(getAll(posts))
     }
+}
+
+function* getAllByCategoryRequested({ payload }) {
+    const posts = yield call(getAllByCategoryAPI, payload)
+    if (_.isUndefined(posts)) {
+        yield put(getAllByCategory(List()))
+    } else {
+        yield put(getAllByCategory(posts))
+    }
+}
+
+function* removeRequested({ payload }) {
+    const postRemoved = yield call(removeAPI, payload)
+    yield put(remove(postRemoved))
 }
 
 function* saveRequested({ payload }) {
@@ -36,8 +61,20 @@ function* saveRequested({ payload }) {
     }))
 }
 
+function* watchRequestEdit() {
+    yield takeLatest(getAction(actions.POSTS_REQUEST_EDIT), editRequested)
+}
+
 function* watchRequestGetAll() {
     yield takeLatest(getAction(actions.POSTS_REQUEST_GET_ALL), getAllRequested)
+}
+
+function* watchRequestGetAllByCategory() {
+    yield takeLatest(getAction(actions.POSTS_REQUEST_GET_ALL_BY_CATEGORY), getAllByCategoryRequested)
+}
+
+function* watchRequestRemove() {
+    yield takeLatest(getAction(actions.POSTS_REQUEST_REMOVE), removeRequested)
 }
 
 function* watchRequestSave() {
@@ -46,7 +83,10 @@ function* watchRequestSave() {
 
 function* sagas() {
     yield all([
+        watchRequestEdit(),
         watchRequestGetAll(),
+        watchRequestGetAllByCategory(),
+        watchRequestRemove(),
         watchRequestSave()
     ])
 }

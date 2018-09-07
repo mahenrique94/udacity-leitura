@@ -6,7 +6,9 @@ const messages = {
                 keep: {
                     reading: 'Continuar lendo'
                 },
-                save: 'Salvar'
+                no: 'Não',
+                save: 'Salvar',
+                yes: 'Sim'
             },
             describes: {
                 app: `É um aplicativo para criar e compartilhar conteúdo através de posts,

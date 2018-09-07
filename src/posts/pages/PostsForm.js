@@ -3,12 +3,9 @@ import produce from 'immer'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 
-import { connect } from 'react-redux'
-
-import { requestSave } from '../actions'
-
 import { routes } from 'routes'
 
+import { not } from 'utils/functions'
 import { validateFields } from 'utils/formValidate'
 
 import SimpleMDE from 'react-simplemde-editor'
@@ -45,6 +42,14 @@ class PostsForm extends Component {
         this.form = React.createRef()
     }
 
+    componentWillReceiveProps({ post }) {
+        this.setState(
+            produce(draftState => {
+                draftState.body = post.body
+            })
+        )
+    }
+
     render() {
         const { categories, post } = this.props
         const { body: bodyValue } = this.state
@@ -53,7 +58,7 @@ class PostsForm extends Component {
             <Fragment>
                 <Form
                     cancelTo="postsList"
-                    initialValue={ post }
+                    initialValues={ post }
                     onSubmit={ this.handleSubmit }
                     ref={ this.form }
                     validate={ this.validate }
@@ -86,6 +91,7 @@ class PostsForm extends Component {
                                         status: false,
                                         tabSize: 4
                                     } }
+                                    value={ bodyValue }
                                 />
                             </FormData>
                         </Col>
@@ -105,12 +111,14 @@ class PostsForm extends Component {
                 draftState.body = value
             })
         )
+        console.log(this.state)
     }
 
     handleSubmit = values => {
         const { save } = this.props
         const { body } = this.state
         const data = { ...values, body }
+        console.log(data)
         save(data)
     }
 
@@ -118,8 +126,4 @@ class PostsForm extends Component {
 
 }
 
-const mapDispatchToProps = {
-    save: values => requestSave(values)
-}
-
-export default connect(null, mapDispatchToProps)(PostsForm)
+export default PostsForm

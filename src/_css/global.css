@@ -2,6 +2,12 @@
     display: block;
 }
 
+.modal-icon {
+    color: #ffc107;
+    font-size: 5rem;
+    margin-right: 1rem;
+}
+
 .simplemde__editor.is-invalid .CodeMirror, .simplemde__editor.is-invalid .editor-toolbar {
     border-color: #dc3545;
 }

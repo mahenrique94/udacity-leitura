@@ -8,12 +8,17 @@ import FormActions from './FormActions'
 
 class Form extends Component {
 
+    static defaultProps = {
+        initialValues: {}
+    }
+
     static propTypes = {
         cancelTo: PropTypes.string.isRequired,
         children: PropTypes.oneOfType([
             PropTypes.array,
             PropTypes.object
         ]).isRequired,
+        initialValues: PropTypes.object,
         onSubmit: PropTypes.func.isRequired,
         validate: PropTypes.func.isRequired
     }
@@ -25,9 +30,10 @@ class Form extends Component {
     }
 
     render() {
-        const { cancelTo, children, onSubmit, validate } = this.props
+        const { cancelTo, children, initialValues, onSubmit, validate } = this.props
+
         return (
-            <FinalForm onSubmit={ onSubmit } ref={ this.finalForm } validate={ validate }>
+            <FinalForm initialValues={ initialValues } onSubmit={ onSubmit } ref={ this.finalForm } validate={ validate }>
                 { ({ handleSubmit, pristine, invalid }) => (
                     <BootstrapForm onSubmit={ handleSubmit }>
                         { children }

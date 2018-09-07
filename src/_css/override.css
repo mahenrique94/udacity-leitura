@@ -1,0 +1,5 @@
+.modal-body {
+    align-items: center;
+    display: flex;
+    padding: 2rem 3rem;
+}

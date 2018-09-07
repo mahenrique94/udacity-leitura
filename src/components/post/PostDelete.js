@@ -5,7 +5,7 @@ import i18n from 'i18n'
 
 import { Button } from 'reactstrap'
 
-import Confirm from 'components/Confirm'
+import Confirm from 'components/confirm/Confirm'
 import Icon from 'components/Icon'
 
 import Post from '@/posts/Post'

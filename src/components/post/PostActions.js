@@ -15,18 +15,19 @@ const Actions = styled.div`
     margin-top: .5rem;
 `
 
-const PostActions = ({ post }) => (
+const PostActions = ({ post, remove }) => (
 
     <Actions>
         <PostVote post={ post }/>
         <PostEdit post={ post }/>
-        <PostDelete post={ post }/>
+        <PostDelete post={ post } remove={ remove }/>
     </Actions>
 
 )
 
 PostActions.propTypes = {
-    post: PropTypes.objectOf(Post).isRequired
+    post: PropTypes.objectOf(Post).isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default PostActions

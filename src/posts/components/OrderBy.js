@@ -13,7 +13,7 @@ import { not } from 'utils/functions'
 
 import { Col, Row, FormGroup, Label, Input } from 'reactstrap'
 
-const OrderBy = ({ listToOrder }) => {
+const OrderBy = ({ listToOrder, originalList }) => {
 
     const handleChange = event => {
         const orderBy = event.target.value
@@ -22,7 +22,7 @@ const OrderBy = ({ listToOrder }) => {
         if (not(_.isEmpty(orderBy))) {
             newList = [].concat(listToOrder).sort(sortBy(orderBy))
         } else {
-            newList = []
+            newList = [].concat(originalList)
         }
 
         PubSub.publish(topics.POSTS_ORDERED, newList)
@@ -44,7 +44,8 @@ const OrderBy = ({ listToOrder }) => {
 }
 
 OrderBy.propTypes = {
-    listToOrder: PropTypes.array.isRequired
+    listToOrder: PropTypes.array.isRequired,
+    originalList: PropTypes.array.isRequired
 }
 
 export default OrderBy

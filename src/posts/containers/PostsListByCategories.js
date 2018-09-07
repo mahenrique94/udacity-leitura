@@ -3,25 +3,32 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { requestGetAll, requestRemove } from '../actions'
+import { requestGetAllByCategory, requestRemove } from '../actions'
 import { getAllPosts, getLoadingPosts } from '../selectors'
+
+import { routeHas, getRoute } from 'utils/route'
 
 import App from 'containers/App'
 
 import PostsListPage from '../pages/PostsList'
 
-class PostsList extends Component {
+class PostsListByCategories extends Component {
 
     static propTypes = {
         getAll: PropTypes.func.isRequired,
         list: PropTypes.arrayOf(PropTypes.object).isRequired,
         loading: PropTypes.bool.isRequired,
+        match: PropTypes.object.isRequired,
         remove: PropTypes.func.isRequired
     }
 
     componentDidMount() {
-        const { getAll } = this.props
-        getAll()
+        const { getAll, match } = this.props
+        const param = 'category'
+        if (routeHas(match, param)) {
+            const category = getRoute(match, param)
+            getAll(category)
+        }
     }
 
     render() {
@@ -41,8 +48,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    getAll: requestGetAll,
+    getAll: requestGetAllByCategory,
     remove: id => requestRemove(id)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsList)
+export default connect(mapStateToProps, mapDispatchToProps)(PostsListByCategories)

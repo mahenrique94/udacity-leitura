@@ -20,12 +20,14 @@ class PostsList extends Component {
 
     static propTypes = {
         list: PropTypes.arrayOf(PropTypes.object).isRequired,
-        loading: PropTypes.bool.isRequired
+        loading: PropTypes.bool.isRequired,
+        remove: PropTypes.func.isRequired
     }
 
-    state = produce({}, () => ({ list: [] }))
-
-    static getDerivedStateFromProps = ({ list }, state) => produce(state, () => ({ list: [].concat(list) }))
+    state = produce({}, () => ({
+        list: [],
+        originalList: []
+    }))
 
     componentDidMount() {
         PubSub.subscribe(topics.POSTS_ORDERED, (_, data) => {
@@ -37,16 +39,28 @@ class PostsList extends Component {
         })
     }
 
+    componentWillReceiveProps({ list }) {
+        this.setState(
+            produce(draftState => {
+                draftState.list = list
+                draftState.originalList = list
+            })
+        )
+    }
+
     render() {
-        const { loading } = this.props
-        const { list } = this.state
+        const { loading, remove } = this.props
+        const { list, originalList } = this.state
 
         return (
             <Fragment>
-                <OrderBy listToOrder={ list }/>
+                <OrderBy listToOrder={ list } originalList={ originalList }/>
                 <If condition={ !loading } el={ Loading }>
                     <Container data-cy="posts" style={ { maxWidth: '720px' } }>
-                        { list.map((post, index) => <Post data-cy={ `post-${post.title}` } key={ index } post={ post }/>) }
+                        {
+                            list.map((post, index) =>
+                                <Post data-cy={ `post-${post.title}` } key={ index } post={ post } remove={ remove }/>)
+                        }
                     </Container>
                 </If>
                 <Button bottom float position right to={ routes.postsForm }>

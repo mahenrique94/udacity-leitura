@@ -16,21 +16,22 @@ const Footer = styled.footer`
     width: 100%;
 `
 
-const PostHeader = ({ post }) => {
+const PostHeader = ({ post, remove }) => {
 
     const { category, id } = post
     return (
         <Footer>
             <Link className="btn btn-info  btn-sm mb-2" to={ `${category}/${id}` }>{ i18n.t('buttons.keep.reading') }</Link>
             <Link className="badge badge-primary" to={ category }>{ category }</Link>
-            <PostActions post={ post }/>
+            <PostActions post={ post } remove={ remove }/>
         </Footer>
     )
 
 }
 
 PostHeader.propTypes = {
-    post: PropTypes.objectOf(PostModel).isRequired
+    post: PropTypes.objectOf(PostModel).isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default PostHeader
