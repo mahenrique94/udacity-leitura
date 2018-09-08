@@ -5,21 +5,22 @@ import { Media } from 'reactstrap'
 
 import PostModel from '@/posts/Post'
 
-const PostHeader = ({ post }) => {
+const PostContent = ({ details, post }) => {
 
-    const { resume } = post
+    const { body, resume } = post
     return (
         <Fragment>
             <Media body className="mb-2">
-                { resume }
+                { details ? body : resume }
             </Media>
         </Fragment>
     )
 
 }
 
-PostHeader.propTypes = {
+PostContent.propTypes = {
+    details: PropTypes.bool.isRequired,
     post: PropTypes.objectOf(PostModel).isRequired
 }
 
-export default PostHeader
+export default PostContent

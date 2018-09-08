@@ -8,22 +8,20 @@ import { Button } from 'reactstrap'
 import Confirm from 'components/confirm/Confirm'
 import Icon from 'components/Icon'
 
-import Post from '@/posts/Post'
-
-const PostDelete = ({ post, remove }) => (
+const Delete = ({ obj, remove }) => (
 
     <Confirm
         message={ i18n.t('messages.confirm.api.delete') }
-        onConfirm={ () => remove(post.id) }
+        onConfirm={ () => remove(obj.id) }
     >
         <Button className="ml-2" color="danger" size="sm"><Icon icon="trash"/></Button>
     </Confirm>
 
 )
 
-PostDelete.propTypes = {
-    post: PropTypes.objectOf(Post).isRequired,
+Delete.propTypes = {
+    obj: PropTypes.object.isRequired,
     remove: PropTypes.func.isRequired
 }
 
-export default PostDelete
+export default Delete

@@ -1,3 +1,5 @@
+import { types } from 'constants/Votes'
+
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
@@ -7,29 +9,24 @@ import { Button } from 'reactstrap'
 import Icon from 'components/Icon'
 import If from 'components/If'
 
-import Post from '@/posts/Post'
-
 const VoteScore = styled.div`
     flex-grow: 1;
 `
 
-const PostVote = ({ post }) => {
+const Vote = ({ obj, vote }) => {
 
-    const commonProps = {
-        className: 'mr-2',
-        size: 'sm'
-    }
-    const { voteScore } = post
+    const commonProps = { className: 'mr-2', size: 'sm' }
+    const { voteScore } = obj
 
     return (
         <VoteScore>
-            <Button { ...commonProps } color="success">
+            <Button { ...commonProps } color="success" onClick={ () => vote(obj.id, types.up) }>
                 <If condition={ voteScore > 0 } el={ null }>
                     <span className="mr-2" style={ { verticalAlign: 'middle' } }>{ voteScore }</span>
                 </If>
                 <Icon icon="thumbs-up"/>
             </Button>
-            <Button { ...commonProps } color="danger">
+            <Button { ...commonProps } color="danger" onClick={ () => vote(obj.id, types.down) }>
                 <If condition={ voteScore < 0 } el={ null }>
                     <span className="mr-2" style={ { verticalAlign: 'middle' } }>{ voteScore }</span>
                 </If>
@@ -40,8 +37,9 @@ const PostVote = ({ post }) => {
 
 }
 
-PostVote.propTypes = {
-    post: PropTypes.objectOf(Post).isRequired
+Vote.propTypes = {
+    obj: PropTypes.object.isRequired,
+    vote: PropTypes.func.isRequired
 }
 
-export default PostVote
+export default Vote

@@ -11,7 +11,9 @@ const requestGetAll = createAction(actions.POSTS_REQUEST_GET_ALL)
 const requestGetAllByCategory = createAction(actions.POSTS_REQUEST_GET_ALL_BY_CATEGORY)
 const requestRemove = createAction(actions.POSTS_REQUEST_REMOVE)
 const requestSave = createAction(actions.POSTS_REQUEST_SAVE)
+const requestVote = createAction(actions.POSTS_REQUEST_VOTE)
 const save = createAction(actions.POSTS_SAVE)
+const vote = createAction(actions.POSTS_VOTE)
 
 export {
     edit,
@@ -23,5 +25,7 @@ export {
     requestGetAllByCategory,
     requestRemove,
     requestSave,
-    save
+    requestVote,
+    save,
+    vote
 }

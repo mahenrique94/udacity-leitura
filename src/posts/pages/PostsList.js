@@ -13,15 +13,17 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import If from 'components/If'
 import Loading from 'components/Loading'
-import OrderBy from '../components/OrderBy'
-import Post from 'components/post/Post'
+import Filters from '../components/Filters'
+import Post from '../components/post/Post'
 
 class PostsList extends Component {
 
     static propTypes = {
+        categories: PropTypes.arrayOf(PropTypes.object).isRequired,
         list: PropTypes.arrayOf(PropTypes.object).isRequired,
         loading: PropTypes.bool.isRequired,
-        remove: PropTypes.func.isRequired
+        remove: PropTypes.func.isRequired,
+        vote: PropTypes.func.isRequired
     }
 
     state = produce({}, () => ({
@@ -49,17 +51,17 @@ class PostsList extends Component {
     }
 
     render() {
-        const { loading, remove } = this.props
+        const { categories, loading, remove, vote } = this.props
         const { list, originalList } = this.state
 
         return (
             <Fragment>
-                <OrderBy listToOrder={ list } originalList={ originalList }/>
+                <Filters categories={ categories } listToOrder={ list } originalList={ originalList }/>
                 <If condition={ !loading } el={ Loading }>
                     <Container data-cy="posts" style={ { maxWidth: '720px' } }>
                         {
                             list.map((post, index) =>
-                                <Post data-cy={ `post-${post.title}` } key={ index } post={ post } remove={ remove }/>)
+                                <Post data-cy={ `post-${post.title}` } key={ index } post={ post } remove={ remove } vote={ vote }/>)
                         }
                     </Container>
                 </If>

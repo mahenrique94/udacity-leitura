@@ -9,19 +9,25 @@ import PostHeader from './PostHeader'
 
 import PostModel from '@/posts/Post'
 
-const Post = ({ post, remove }) => (
+const Post = ({ details, post, remove, vote }) => (
 
     <Media className="mt-5" style={ { flexDirection: 'column', position: 'relative' } }>
         <PostHeader post={ post }/>
-        <PostContent post={ post }/>
-        <PostFooter post={ post } remove={ remove }/>
+        <PostContent details={ details } post={ post }/>
+        <PostFooter details={ details } post={ post } remove={ remove } vote={ vote }/>
     </Media>
 
 )
 
+Post.defaultProps = {
+    details: false
+}
+
 Post.propTypes = {
+    details: PropTypes.bool,
     post: PropTypes.objectOf(PostModel).isRequired,
-    remove: PropTypes.func.isRequired
+    remove: PropTypes.func.isRequired,
+    vote: PropTypes.func.isRequired
 }
 
 export default Post

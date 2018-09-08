@@ -5,53 +5,39 @@ import http from 'http'
 import { not } from 'utils/functions'
 import { handleError, responseWasOK } from 'utils/http'
 
-import Post from './Post'
+import Comment from './Comment'
 
-const POSTS_PATH = '/posts'
+const COMMENTS_PATH = '/comments'
 
 const edit = id =>
-    http.get(`${POSTS_PATH}/${id}`)
+    http.get(`${COMMENTS_PATH}/${id}`)
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
-                return Map(new Post(data))
+                return Map(new Comment(data))
             }
             return Map()
         })
         .catch(handleError)
 
-const getAll = () =>
-    http.get(POSTS_PATH)
+const getAll = postId =>
+    http.get(`/posts/${postId}${COMMENTS_PATH}`)
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
-                let posts = List()
+                let comments = List()
                 if (Array.isArray(data)) {
-                    data.filter(({ deleted }) => not(deleted)).forEach(item => posts = posts.push(new Post(item)))
+                    data.filter(({ deleted }) => not(deleted)).forEach(item => comments = comments.push(new Comment(item)))
                 }
-                return posts
-            }
-            return List()
-        })
-        .catch(handleError)
-
-const getAllByCategory = category =>
-    http.get(`${category}/posts`)
-        .then(({ data, status }) => {
-            if (responseWasOK(status)) {
-                let posts = List()
-                if (Array.isArray(data)) {
-                    data.filter(({ deleted }) => not(deleted)).forEach(item => posts = posts.push(new Post(item)))
-                }
-                return posts
+                return comments
             }
             return List()
         })
         .catch(handleError)
 
 const remove = id =>
-    http.delete(`${POSTS_PATH}/${id}`)
+    http.delete(`${COMMENTS_PATH}/${id}`)
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
-                return Map(new Post(data))
+                return Map(new Comment(data))
             }
             return Map()
         })
@@ -60,7 +46,7 @@ const remove = id =>
 const save = values => {
     const { id } = values
     let method = 'POST'
-    let PATH = POSTS_PATH
+    let PATH = COMMENTS_PATH
     values.timestamp = new Date()
     if (id) {
         method = 'PUT'
@@ -72,13 +58,13 @@ const save = values => {
 }
 
 const vote = (id, type) =>
-    http.post(`${POSTS_PATH}/${id}`, { option: type })
+    http.post(`${COMMENTS_PATH}/${id}`, { option: type })
         .then(({ data, status }) => {
             if (responseWasOK(status)) {
-                return Map(new Post(data))
+                return Map(new Comment(data))
             }
             return Map()
         })
         .catch(handleError)
 
-export { edit, getAll, getAllByCategory, remove, save, vote }
+export { edit, getAll, remove, save, vote }

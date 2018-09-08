@@ -45,7 +45,6 @@
         "eol-last": [ "error", "always" ],
         "eqeqeq": [ "error", "always" ],
         "func-call-spacing": [ "error", "never" ],
-        "function-paren-newline": [ "error", "consistent" ],
         "generator-star-spacing": [ "error", { "before": false, "after": true } ],
         "indent": [ "error", 4 ],
         "init-declarations": [ "error", "always" ],

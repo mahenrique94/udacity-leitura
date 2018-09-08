@@ -14,10 +14,11 @@ import {
     getAll as getAllAPI,
     getAllByCategory as getAllByCategoryAPI,
     remove as removeAPI,
-    save as saveAPI
+    save as saveAPI,
+    vote as voteAPI
 } from './api'
 
-import { edit, getAll, getAllByCategory, remove } from './actions'
+import { edit, getAll, getAllByCategory, remove, vote } from './actions'
 
 import { getAction } from 'utils/actions'
 import { navigateTo } from 'utils/browser'
@@ -50,6 +51,7 @@ function* getAllByCategoryRequested({ payload }) {
 function* removeRequested({ payload }) {
     const postRemoved = yield call(removeAPI, payload)
     yield put(remove(postRemoved))
+    yield navigateTo(routes.postsList)
 }
 
 function* saveRequested({ payload }) {
@@ -59,6 +61,11 @@ function* saveRequested({ payload }) {
         message: i18n.t('notifications.messages.api.posts.saved'),
         title: i18n.t('notifications.titles.success')
     }))
+}
+
+function* voteRequested({ payload: { id, type } }) {
+    const postVoted = yield call(voteAPI, id, type)
+    yield put(vote(postVoted))
 }
 
 function* watchRequestEdit() {
@@ -81,13 +88,18 @@ function* watchRequestSave() {
     yield takeLatest(getAction(actions.POSTS_REQUEST_SAVE), saveRequested)
 }
 
+function* watchRequestVote() {
+    yield takeLatest(getAction(actions.POSTS_REQUEST_VOTE), voteRequested)
+}
+
 function* sagas() {
     yield all([
         watchRequestEdit(),
         watchRequestGetAll(),
         watchRequestGetAllByCategory(),
         watchRequestRemove(),
-        watchRequestSave()
+        watchRequestSave(),
+        watchRequestVote()
     ])
 }
 

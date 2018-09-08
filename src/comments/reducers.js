@@ -7,7 +7,6 @@ import { handleActions } from 'redux-actions'
 import {
     edit,
     getAll,
-    getAllByCategory,
     remove,
     requestEdit,
     requestGetAll,
@@ -19,16 +18,15 @@ import { not } from 'utils/functions'
 
 import { store } from './store'
 
-import Post from './Post'
+import Comment from './Comment'
 
 const reducers = handleActions({
-    [edit]: (state, { payload }) => state.merge({ loading: false, post: payload }),
-    [getAll]: (state, { payload }) => state.merge({ list: payload, loading: false, post: Map() }),
-    [getAllByCategory]: (state, { payload }) => state.merge({ list: payload, loading: false, post: Map() }),
+    [edit]: (state, { payload }) => state.merge({ comment: payload, loading: false }),
+    [getAll]: (state, { payload }) => state.merge({ comment: Map(), list: payload, loading: false }),
     [remove]: (state, { payload }) => {
         const { list } = state
         let newList = List(list)
-        const removeIndex = newList.findIndex(post => post.id === payload.get('id'))
+        const removeIndex = newList.findIndex(comment => comment.id === payload.get('id'))
         if (not(_.isUndefined(removeIndex))) {
             newList = newList.delete(removeIndex)
         }
@@ -38,19 +36,13 @@ const reducers = handleActions({
     [requestGetAll]: state => state.set('loading', true),
     [requestRemove]: state => state.set('loading', true),
     [vote]: (state, { payload }) => {
-        const { list, post } = state
+        const { list } = state
         let newList = List(list)
-        let newPost = Map(post)
         const updateIndex = newList.findIndex(item => item.id === payload.get('id'))
         if (not(_.isUndefined(updateIndex))) {
-            newList = newList.set(updateIndex, new Post(payload.toJS()))
+            newList = newList.set(updateIndex, new Comment(payload.toJS()))
         }
-        if (not(_.isEmpty(newPost))) {
-            if (newPost.get('id') === payload.get('id')) {
-                newPost = newPost.set('voteScore', payload.get('voteScore'))
-            }
-        }
-        return state.merge({ list: newList, loading: false, post: newPost })
+        return state.merge({ list: newList, loading: false })
     }
 }, store)
 
