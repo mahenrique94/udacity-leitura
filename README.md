@@ -75,6 +75,7 @@ Before start a developer server for the app you need run the API server, first y
 After download has been completed, extract the `.zip` file and go to `api-server` inside root project. Now you just need run:
 
 ```
+npm i
 node server
 ```
 
