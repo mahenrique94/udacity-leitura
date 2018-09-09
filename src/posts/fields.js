@@ -1,8 +1,7 @@
 const FIELDS = {
     author: {
         component: 'input',
-        'data-cy':
-        'input-author',
+        'data-cy': 'input-author',
         id: 'author',
         maxLength: 60,
         name: 'author',

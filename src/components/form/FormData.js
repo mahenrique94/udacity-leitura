@@ -13,7 +13,20 @@ import { FormFeedback, FormGroup, Label, Input } from 'reactstrap'
 import FormDataSelect from './FormDataSelect'
 import If from 'components/If'
 
-const FormData = ({ children, component, id, maxLength, name, optionText, optionValue, options, required, type }) => (
+const FormData = ({
+    children,
+    component,
+    'data-cy':
+    dataCy,
+    id,
+    maxLength,
+    name,
+    optionText,
+    optionValue,
+    options,
+    required,
+    type
+}) => (
 
     <FormGroup>
         <If condition={ (not(inputIsHidden(type)) || not(_.isNull(children))) }>
@@ -24,6 +37,7 @@ const FormData = ({ children, component, id, maxLength, name, optionText, option
                 <Fragment>
                     <If condition={ isInput(component) } el={
                         <FormDataSelect
+                            data-cy={ dataCy }
                             id={ idInput }
                             input={ input }
                             meta={ meta }
@@ -36,6 +50,7 @@ const FormData = ({ children, component, id, maxLength, name, optionText, option
                         <If condition={ _.isNull(children) } el={ children }>
                             <Input
                                 { ...input }
+                                data-cy={ dataCy }
                                 id={ idInput }
                                 invalid={ not(_.isUndefined(meta.error)) }
                                 maxLength={ inputMaxLength }

@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 const BUTTON_SIZE = '50px'
 const SIZES_GAP = '30px'
 
-const Button = ({ children, className, to }) => <Link className={ className } to={ to }>{ children }</Link>
+const Button = ({ children, className, 'data-cy': dataCy, to }) =>
+    <Link className={ className } data-cy={ dataCy } to={ to }>{ children }</Link>
 
 Button.defaultProps = {
     bottom: false,
@@ -24,6 +25,8 @@ Button.propTypes = {
         PropTypes.string
     ]).isRequired,
     className: PropTypes.string.isRequired,
+    // eslint-disable-next-line
+    'data-cy': PropTypes.string.isRequired,
     float: PropTypes.bool,
     position: PropTypes.bool,
     right: PropTypes.bool,

@@ -11,7 +11,7 @@ import PostModel from '@/posts/Post'
 
 const Post = ({ details, post, remove, vote }) => (
 
-    <Media className="mt-5" style={ { flexDirection: 'column', position: 'relative' } }>
+    <Media className="mt-5" data-cy="posts-post" style={ { flexDirection: 'column', position: 'relative' } }>
         <PostHeader post={ post }/>
         <PostContent details={ details } post={ post }/>
         <PostFooter details={ details } post={ post } remove={ remove } vote={ vote }/>

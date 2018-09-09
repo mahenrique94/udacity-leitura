@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for CommentsList page Should rendering a empty list when list is empty 1`] = `null`;
+
+exports[`Tests for CommentsList page Should rendering a loading component when loading is true 1`] = `
+<div
+  className="sc-bdVaJa jUkFeX"
+/>
+`;
+
+exports[`Tests for CommentsList page Should rendering without crash 1`] = `
+<div
+  className="mt-5 sc-iwsKbI kRjAdc media"
+>
+  <div
+    className="media-body"
+  >
+    <h4
+      className="media-heading"
+    >
+      Test
+    </h4>
+    Testing...
+  </div>
+  <div
+    className="sc-dnqmqq hMmkfQ sc-htoDjs ldLlmj"
+  >
+    <div
+      className="sc-gzVnrw gQVUgH"
+    >
+      <button
+        className="mr-2 btn btn-success btn-sm"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="mr-2"
+          style={
+            Object {
+              "verticalAlign": "middle",
+            }
+          }
+        >
+          1
+        </span>
+      </button>
+      <button
+        className="mr-2 btn btn-danger btn-sm"
+        onClick={[Function]}
+        type="button"
+      />
+    </div>
+    <button
+      className="ml-2 btn btn-warning btn-sm"
+      onClick={[Function]}
+      type="button"
+    />
+    <button
+      className="ml-2 btn btn-danger btn-sm"
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;

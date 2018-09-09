@@ -65,7 +65,7 @@ class PostsList extends Component {
                         }
                     </Container>
                 </If>
-                <Button bottom float position right to={ routes.postsForm }>
+                <Button bottom data-cy="posts-add" float position right to={ routes.postsForm }>
                     <Icon icon="plus"/>
                 </Button>
             </Fragment>

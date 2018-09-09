@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for CommentsForm page Should rendering loading component when loading is true 1`] = `null`;
+
+exports[`Tests for CommentsForm page Should rendering null when loading is true 1`] = `null`;
+
+exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
+<form
+  className="mt-5"
+  onSubmit={[Function]}
+>
+  <div
+    className="position-relative form-group"
+  >
+    <input
+      className="form-control"
+      id="id"
+      maxLength={999999999}
+      name="id"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      required={false}
+      type="hidden"
+      value=""
+    />
+  </div>
+  <div
+    className="position-relative form-group"
+  >
+    <input
+      className="form-control"
+      id="timestamp"
+      maxLength={999999999}
+      name="timestamp"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      required={false}
+      type="hidden"
+      value=""
+    />
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <div
+        className="position-relative form-group"
+      >
+        <label
+          className=""
+          htmlFor="author"
+        >
+          Author
+        </label>
+        <input
+          className="is-invalid form-control"
+          id="author"
+          maxLength={60}
+          name="author"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="is-show invalid-feedback"
+        >
+          Fillment of this field it's required
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <div
+        className="position-relative form-group"
+      >
+        <label
+          className=""
+          htmlFor="body"
+        >
+          Content
+        </label>
+        <textarea
+          className="is-invalid form-control"
+          id="body"
+          maxLength={999999999}
+          name="body"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={true}
+          value=""
+        />
+        <div
+          className="is-show invalid-feedback"
+        >
+          Fillment of this field it's required
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="mt-3 text-right row"
+  >
+    <div
+      className="col-12"
+    >
+      <button
+        className="btn btn-success btn-md disabled"
+        disabled={true}
+        onClick={[Function]}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</form>
+`;

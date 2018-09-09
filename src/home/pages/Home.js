@@ -10,8 +10,8 @@ const Home = () => (
 
     <App>
         <Jumbotron>
-            <h1 className="display-3">{ i18n.t('titles.app') }</h1>
-            <p className="lead">{ i18n.t('describes.app') }</p>
+            <h1 className="display-3" data-cy="app-title">{ i18n.t('titles.app') }</h1>
+            <p className="lead" data-cy="app-describe">{ i18n.t('describes.app') }</p>
         </Jumbotron>
     </App>
 

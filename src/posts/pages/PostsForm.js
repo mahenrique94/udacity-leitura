@@ -111,14 +111,12 @@ class PostsForm extends Component {
                 draftState.body = value
             })
         )
-        console.log(this.state)
     }
 
     handleSubmit = values => {
         const { save } = this.props
         const { body } = this.state
         const data = { ...values, body }
-        console.log(data)
         save(data)
     }
 
