@@ -52,8 +52,8 @@ const save = values => {
         method = 'PUT'
         PATH = `${PATH}/${id}`
     }
-    http({ data: values, method, url: PATH })
-        .then(({ data }) => data)
+    return http({ data: values, method, url: PATH })
+        .then(({ data }) => Map(new Comment(data)))
         .catch(handleError)
 }
 

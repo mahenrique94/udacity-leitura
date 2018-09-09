@@ -13,7 +13,7 @@ import {
     vote as voteAPI
 } from './api'
 
-import { edit, getAll, remove, vote } from './actions'
+import { edit, getAll, remove, save, vote } from './actions'
 
 import { getAction } from 'utils/actions'
 
@@ -37,7 +37,8 @@ function* removeRequested({ payload }) {
 }
 
 function* saveRequested({ payload }) {
-    yield call(saveAPI, payload)
+    const newComment = yield call(saveAPI, payload)
+    yield put(save(newComment))
 }
 
 function* voteRequested({ payload: { id, type } }) {

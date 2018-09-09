@@ -16,7 +16,7 @@ import If from 'components/If'
 const Edit = ({ edit, link, obj }) => (
 
     <If condition={ not(_.isEmpty(link)) } el={
-        <Button className="ml-2" color="warning" onClick={ edit } size="sm">
+        <Button className="ml-2" color="warning" onClick={ () => edit(obj.id) } size="sm">
             <Icon icon="pencil-alt"/>
         </Button>
     }>

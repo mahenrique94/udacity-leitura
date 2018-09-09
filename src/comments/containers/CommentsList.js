@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import { connect } from 'react-redux'
 
 import { requestEdit, requestGetAll, requestRemove, requestVote } from '../actions'
 
 import { getAllComments, getLoadingComments } from '../selectors'
+
+import CommentsForm from './CommentsForm'
 
 import CommentsListPage from '../pages/CommentsList'
 
@@ -27,8 +29,13 @@ class CommentsList extends Component {
     }
 
     render() {
-        const { edit, list, loading, remove, vote } = this.props
-        return <CommentsListPage edit={ edit } list={ list } loading={ loading } remove={ remove } vote={ vote }/>
+        const { edit, list, loading, postId, remove, vote } = this.props
+        return (
+            <Fragment>
+                <CommentsListPage edit={ edit } list={ list } loading={ loading } remove={ remove } vote={ vote }/>
+                <CommentsForm loading={ loading } postId={ postId }/>
+            </Fragment>
+        )
     }
 
 }

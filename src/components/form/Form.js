@@ -9,15 +9,18 @@ import FormActions from './FormActions'
 class Form extends Component {
 
     static defaultProps = {
+        cancelTo: '',
+        className: '',
         initialValues: {}
     }
 
     static propTypes = {
-        cancelTo: PropTypes.string.isRequired,
+        cancelTo: PropTypes.string,
         children: PropTypes.oneOfType([
             PropTypes.array,
             PropTypes.object
         ]).isRequired,
+        className: PropTypes.string,
         initialValues: PropTypes.object,
         onSubmit: PropTypes.func.isRequired,
         validate: PropTypes.func.isRequired
@@ -30,12 +33,17 @@ class Form extends Component {
     }
 
     render() {
-        const { cancelTo, children, initialValues, onSubmit, validate } = this.props
+        const { cancelTo, children, className, initialValues, onSubmit, validate } = this.props
 
         return (
-            <FinalForm initialValues={ initialValues } onSubmit={ onSubmit } ref={ this.finalForm } validate={ validate }>
+            <FinalForm
+                initialValues={ initialValues }
+                onSubmit={ onSubmit }
+                ref={ this.finalForm }
+                validate={ validate }
+            >
                 { ({ handleSubmit, pristine, invalid }) => (
-                    <BootstrapForm onSubmit={ handleSubmit }>
+                    <BootstrapForm className={ className } onSubmit={ handleSubmit }>
                         { children }
                         <FormActions canSubmit={ pristine || invalid } cancelTo={ cancelTo }/>
                     </BootstrapForm>
