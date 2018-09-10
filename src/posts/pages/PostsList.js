@@ -41,22 +41,12 @@ class PostsList extends Component {
         })
     }
 
-    componentWillReceiveProps({ list }) {
-        this.setState(
-            produce(draftState => {
-                draftState.list = list
-                draftState.originalList = list
-            })
-        )
-    }
-
     render() {
         const { categories, loading, remove, vote } = this.props
         const { list, originalList } = this.state
-
         return (
             <Fragment>
-                <Filters categories={ categories } listToOrder={ list } originalList={ originalList }/>
+                <Filters categories={ categories } list={ list } originalList={ originalList }/>
                 <If condition={ !loading } el={ Loading }>
                     <Container data-cy="posts" style={ { maxWidth: '720px' } }>
                         {
@@ -69,6 +59,15 @@ class PostsList extends Component {
                     <Icon icon="plus"/>
                 </Button>
             </Fragment>
+        )
+    }
+
+    UNSAFE_componentWillReceiveProps({ list }) {
+        this.setState(
+            produce(draftState => {
+                draftState.list = list
+                draftState.originalList = list
+            })
         )
     }
 

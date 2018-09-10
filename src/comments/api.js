@@ -1,3 +1,5 @@
+import uuid from 'uuid'
+
 import { List, Map } from 'immutable'
 
 import http from 'http'
@@ -51,6 +53,8 @@ const save = values => {
     if (id) {
         method = 'PUT'
         PATH = `${PATH}/${id}`
+    } else {
+        values.id = uuid()
     }
     return http({ data: values, method, url: PATH })
         .then(({ data }) => Map(new Comment(data)))

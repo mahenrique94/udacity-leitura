@@ -8,7 +8,9 @@ import {
     edit,
     getAll,
     getAllByCategory,
+    newComment,
     remove,
+    removeComment,
     requestEdit,
     requestGetAll,
     requestRemove,
@@ -25,6 +27,12 @@ const reducers = handleActions({
     [edit]: (state, { payload }) => state.merge({ loading: false, post: payload }),
     [getAll]: (state, { payload }) => state.merge({ list: payload, loading: false, post: Map() }),
     [getAllByCategory]: (state, { payload }) => state.merge({ list: payload, loading: false, post: Map() }),
+    [newComment]: state => {
+        const { post } = state
+        let newPost = Map(post)
+        newPost = newPost.set('commentCount', newPost.get('commentCount') + 1)
+        return state.set('post', newPost)
+    },
     [remove]: (state, { payload }) => {
         const { list } = state
         let newList = List(list)
@@ -33,6 +41,12 @@ const reducers = handleActions({
             newList = newList.delete(removeIndex)
         }
         return state.merge({ list: newList, loading: false })
+    },
+    [removeComment]: state => {
+        const { post } = state
+        let newPost = Map(post)
+        newPost = newPost.set('commentCount', newPost.get('commentCount') - 1)
+        return state.set('post', newPost)
     },
     [requestEdit]: state => state.set('loading', true),
     [requestGetAll]: state => state.set('loading', true),

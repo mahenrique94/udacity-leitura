@@ -42,14 +42,6 @@ class PostsForm extends Component {
         this.form = React.createRef()
     }
 
-    componentWillReceiveProps({ post }) {
-        this.setState(
-            produce(draftState => {
-                draftState.body = post.body
-            })
-        )
-    }
-
     render() {
         const { categories, post } = this.props
         const { body: bodyValue } = this.state
@@ -101,6 +93,14 @@ class PostsForm extends Component {
                     <Icon icon="chevron-left"/>
                 </Button>
             </Fragment>
+        )
+    }
+
+    UNSAFE_componentWillReceiveProps({ post }) {
+        this.setState(
+            produce(draftState => {
+                draftState.body = post.body
+            })
         )
     }
 

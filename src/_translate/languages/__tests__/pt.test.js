@@ -6,6 +6,7 @@ describe('Tests for portuguese messages', () => {
 
     it('Smoke tests', () => {
         expect(translations.buttons).toBeDefined()
+        expect(translations.buttons.backHome).toBeDefined()
         expect(translations.buttons.cancel).toBeDefined()
         expect(translations.buttons.keep).toBeDefined()
         expect(translations.buttons.keep.reading).toBeDefined()
@@ -50,9 +51,12 @@ describe('Tests for portuguese messages', () => {
         expect(translations.texts.selectOrder).toBeDefined()
         expect(translations.titles).toBeDefined()
         expect(translations.titles.app).toBeDefined()
+        expect(translations.titles.page).toBeDefined()
+        expect(translations.titles.page.notFound).toBeDefined()
     })
 
     it('Should match with each translation message', () => {
+        expect(translations.buttons.backHome).toEqual('Voltar para a página principal')
         expect(translations.buttons.cancel).toEqual('Cancelar')
         expect(translations.buttons.keep.reading).toEqual('Continuar lendo')
         expect(translations.buttons.no).toEqual('Não')
@@ -81,6 +85,7 @@ describe('Tests for portuguese messages', () => {
         expect(translations.texts.score).toEqual('Pontuação')
         expect(translations.texts.selectOrder).toEqual('Selecione uma ordenação')
         expect(translations.titles.app).toEqual('Leitura')
+        expect(translations.titles.page.notFound).toEqual('Página não encontrada')
     })
 
 })

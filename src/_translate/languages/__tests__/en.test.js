@@ -6,6 +6,7 @@ describe('Tests for english messages', () => {
 
     it('Smoke tests', () => {
         expect(translations.buttons).toBeDefined()
+        expect(translations.buttons.backHome).toBeDefined()
         expect(translations.buttons.cancel).toBeDefined()
         expect(translations.buttons.keep).toBeDefined()
         expect(translations.buttons.keep.reading).toBeDefined()
@@ -50,9 +51,12 @@ describe('Tests for english messages', () => {
         expect(translations.texts.selectOrder).toBeDefined()
         expect(translations.titles).toBeDefined()
         expect(translations.titles.app).toBeDefined()
+        expect(translations.titles.page).toBeDefined()
+        expect(translations.titles.page.notFound).toBeDefined()
     })
 
     it('Should match with each translation message', () => {
+        expect(translations.buttons.backHome).toEqual('Back to home')
         expect(translations.buttons.cancel).toEqual('Cancel')
         expect(translations.buttons.keep.reading).toEqual('Keep reading')
         expect(translations.buttons.no).toEqual('No')
@@ -81,6 +85,7 @@ describe('Tests for english messages', () => {
         expect(translations.texts.score).toEqual('Score')
         expect(translations.texts.selectOrder).toEqual('Select a ordenation')
         expect(translations.titles.app).toEqual('Leitura')
+        expect(translations.titles.page.notFound).toEqual('Page not found')
     })
 
 })

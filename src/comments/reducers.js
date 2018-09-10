@@ -40,10 +40,10 @@ const reducers = handleActions({
         const { list } = state
         let newList = List(list)
         const commentIndex = newList.findIndex(item => item.id === payload.get('id'))
-        if (_.isUndefined(commentIndex)) {
-            newList = newList.push(new Comment(payload.toJS()))
-        } else {
+        if (commentIndex >= 0) {
             newList = newList.set(commentIndex, new Comment(payload.toJS()))
+        } else {
+            newList = newList.push(new Comment(payload.toJS()))
         }
         return state.merge({ comment: Map(), list: newList })
     },

@@ -4,7 +4,8 @@ import PostsList from './containers/PostsList'
 import PostsListByCategories from './containers/PostsListByCategories'
 
 const routes = [
-    { component: PostsList, name: 'postsList', path: '/posts' },
+    { component: PostsList, name: 'postsList', path: '/' },
+    { name: 'posts', path: '/posts' },
     { component: PostsForm, name: 'postsForm', path: '/posts/form' },
     { component: PostsForm, path: '/posts/:id' },
     { component: PostsListByCategories, name: 'postsCategories', path: '/:category' },

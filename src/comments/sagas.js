@@ -14,6 +14,7 @@ import {
 } from './api'
 
 import { edit, getAll, remove, save, vote } from './actions'
+import { newComment, removeComment } from '@/posts/actions'
 
 import { getAction } from 'utils/actions'
 
@@ -34,11 +35,13 @@ function* getAllRequested({ payload }) {
 function* removeRequested({ payload }) {
     const commentRemoved = yield call(removeAPI, payload)
     yield put(remove(commentRemoved))
+    yield put(removeComment())
 }
 
 function* saveRequested({ payload }) {
-    const newComment = yield call(saveAPI, payload)
-    yield put(save(newComment))
+    const commentCreated = yield call(saveAPI, payload)
+    yield put(save(commentCreated))
+    yield put(newComment())
 }
 
 function* voteRequested({ payload: { id, type } }) {

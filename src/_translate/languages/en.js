@@ -2,6 +2,7 @@ const messages = {
     en: {
         translations: {
             buttons: {
+                backHome: 'Back to home',
                 cancel: 'Cancel',
                 keep: {
                     reading: 'Keep reading'
@@ -63,7 +64,10 @@ const messages = {
                 selectOrder: 'Select a ordenation'
             },
             titles: {
-                app: 'Leitura'
+                app: 'Leitura',
+                page: {
+                    notFound: 'Page not found'
+                }
             }
         }
     }

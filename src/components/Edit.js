@@ -4,8 +4,6 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { routes } from 'routes'
-
 import { not } from 'utils/functions'
 
 import { Button } from 'reactstrap'
@@ -20,7 +18,7 @@ const Edit = ({ edit, link, obj }) => (
             <Icon icon="pencil-alt"/>
         </Button>
     }>
-        <Link className="btn btn-warning btn-sm ml-2" to={ `${routes.postsList}/${obj.id}` }>
+        <Link className="btn btn-warning btn-sm ml-2" to={ link }>
             <Icon icon="pencil-alt"/>
         </Link>
     </If>

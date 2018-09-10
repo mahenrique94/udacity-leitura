@@ -2,6 +2,7 @@ const messages = {
     pt: {
         translations: {
             buttons: {
+                backHome: 'Voltar para a página principal',
                 cancel: 'Cancelar',
                 keep: {
                     reading: 'Continuar lendo'
@@ -63,7 +64,10 @@ const messages = {
                 selectOrder: 'Selecione uma ordenação'
             },
             titles: {
-                app: 'Leitura'
+                app: 'Leitura',
+                page: {
+                    notFound: 'Página não encontrada'
+                }
             }
         }
     }

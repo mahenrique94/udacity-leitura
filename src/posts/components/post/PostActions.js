@@ -8,7 +8,7 @@ import Actions from 'components/Actions'
 import Post from '@/posts/Post'
 
 const PostActions = ({ post, remove, vote }) =>
-    <Actions link={ `${routes.postsForm}/${post.id}` } obj={ post } remove={ remove } vote={ vote }/>
+    <Actions link={ `${routes.posts}/${post.id}` } obj={ post } remove={ remove } vote={ vote }/>
 
 PostActions.propTypes = {
     post: PropTypes.objectOf(Post).isRequired,

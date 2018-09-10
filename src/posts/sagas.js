@@ -27,7 +27,11 @@ import Notifications from 'react-notification-system-redux'
 
 function* editRequested({ payload }) {
     const post = yield call(editAPI, payload)
-    yield put(edit(post))
+    if (_.isUndefined(post.get('id'))) {
+        yield navigateTo('/page/not/found')
+    } else {
+        yield put(edit(post))
+    }
 }
 
 function* getAllRequested() {

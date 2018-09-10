@@ -150,7 +150,6 @@
         "react/no-multi-comp": "error",
         "react/no-redundant-should-component-update": "error",
         "react/no-this-in-sfc": "error",
-        "react/no-unsafe": "error",
         "react/no-will-update-set-state": "error",
         "react/require-default-props": "error",
         "react/self-closing-comp" : "error",

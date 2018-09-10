@@ -1,16 +1,11 @@
 import React, { Component, Fragment } from 'react'
 
-import { NavLink } from 'react-router-dom'
-
 import i18n from 'i18n'
-
-import { routes } from 'routes'
 
 import {
     Collapse,
     NavbarToggler,
     Nav,
-    NavItem,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -30,11 +25,6 @@ class MenuLinks extends Component {
                 <NavbarToggler onClick={ this.toggle }/>
                 <Collapse isOpen={ isOpen } navbar>
                     <Nav className="ml-auto" data-cy="nav" navbar>
-                        <NavItem>
-                            <NavLink className="nav-link" data-cy="nav-link-posts" to={ routes.postsList }>
-                                { i18n.t('menu.posts') }
-                            </NavLink>
-                        </NavItem>
                         <UncontrolledDropdown data-cy="nav-languages" inNavbar nav>
                             <DropdownToggle caret data-cy="nav-languages-link" nav>{ i18n.t('menu.language') }</DropdownToggle>
                             <DropdownMenu right>

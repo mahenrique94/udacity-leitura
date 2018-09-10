@@ -39,14 +39,6 @@ class PostsListByCategories extends Component {
         this.getAllPostsByCategory()
     }
 
-    componentWillReceiveProps({ match }) {
-        const { actualCategory } = this.state
-        const newCategoryToFilter = getRoute(match, PARAM)
-        if (newCategoryToFilter !== actualCategory) {
-            this.getAllPostsByCategory()
-        }
-    }
-
     render() {
         const { categories, list, loading, remove, vote } = this.props
         return (
@@ -54,6 +46,14 @@ class PostsListByCategories extends Component {
                 <PostsListPage categories={ categories } list={ list } loading={ loading } remove={ remove } vote={ vote }/>
             </App>
         )
+    }
+
+    UNSAFE_componentWillReceiveProps({ match }) {
+        const { actualCategory } = this.state
+        const newCategoryToFilter = getRoute(match, PARAM)
+        if (newCategoryToFilter !== actualCategory) {
+            this.getAllPostsByCategory()
+        }
     }
 
     getAllPostsByCategory = () => {
