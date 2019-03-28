@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests for NotFound component Should rendering without crash 1`] = `
-<h1>
-  Page notfound
-</h1>
+<div
+  className="jumbotron"
+>
+  <h1
+    className="display-3"
+  >
+    <strong>
+      404
+    </strong>
+     - 
+    Page not found
+  </h1>
+  <a
+    href="/"
+  >
+    Back to home
+  </a>
+</div>
 `;

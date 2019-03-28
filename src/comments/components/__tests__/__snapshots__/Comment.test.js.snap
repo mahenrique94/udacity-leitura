@@ -2,7 +2,7 @@
 
 exports[`Tests for Comment component Should rendering without crash 1`] = `
 <div
-  className="mt-5 sc-iwsKbI kRjAdc media"
+  className="mt-5 sc-ifAKCX eEczng media"
 >
   <div
     className="media-body"
@@ -15,10 +15,10 @@ exports[`Tests for Comment component Should rendering without crash 1`] = `
     Testing...
   </div>
   <div
-    className="sc-dnqmqq hMmkfQ sc-htoDjs ldLlmj"
+    className="sc-bxivhb kinwFJ sc-htpNat fXuwsg"
   >
     <div
-      className="sc-gzVnrw gQVUgH"
+      className="sc-bwzfXH hIEsWN"
     >
       <button
         className="mr-2 btn btn-success btn-sm"

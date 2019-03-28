@@ -10,7 +10,7 @@ exports[`Tests for CommentsList page Should rendering a loading component when l
 
 exports[`Tests for CommentsList page Should rendering without crash 1`] = `
 <div
-  className="mt-5 sc-iwsKbI kRjAdc media"
+  className="mt-5 sc-EHOje iQFlXX media"
 >
   <div
     className="media-body"
@@ -23,10 +23,10 @@ exports[`Tests for CommentsList page Should rendering without crash 1`] = `
     Testing...
   </div>
   <div
-    className="sc-dnqmqq hMmkfQ sc-htoDjs ldLlmj"
+    className="sc-ifAKCX jHILkp sc-bxivhb hvqTDp"
   >
     <div
-      className="sc-gzVnrw gQVUgH"
+      className="sc-htpNat dqcuAy"
     >
       <button
         className="mr-2 btn btn-success btn-sm"

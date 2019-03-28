@@ -59,8 +59,8 @@
     ],
     "testEnvironment": "jest-environment-jsdom",
     "testMatch": [
-        "<rootDir>/src/**/__tests__/**/*.{js}",
-        "<rootDir>/src/**/?(*.)(test).{js}"
+        "<rootDir>/src/**/__tests__/**/*.js",
+        "<rootDir>/src/**/?(*.)(test).js"
     ],
     "testPathIgnorePatterns": [
         "/build/",

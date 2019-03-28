@@ -2,18 +2,13 @@
 
 exports[`Tests for Menu component Should rendering without crash 1`] = `
 <nav
-  className="navbar navbar-expand-md navbar-light navbar-dark bg-dark"
+  className="mb-5 navbar navbar-expand-md navbar-light navbar-dark bg-dark"
   data-cy="menu"
 >
   <a
-    className="navbar-brand"
-    data-cy="menu-title"
+    href="/"
   >
-    <a
-      href="/"
-    >
-      menu.title
-    </a>
+    leitura
   </a>
   <button
     className="navbar-toggler"
@@ -33,20 +28,6 @@ exports[`Tests for Menu component Should rendering without crash 1`] = `
       data-cy="nav"
     >
       <li
-        className="nav-item"
-      >
-        <a
-          className="nav-link"
-          onClick={[Function]}
-        >
-          <a
-            href="/"
-          >
-            menu.posts
-          </a>
-        </a>
-      </li>
-      <li
         className="dropdown nav-item"
         data-cy="nav-languages"
         onKeyDown={[Function]}
@@ -59,7 +40,7 @@ exports[`Tests for Menu component Should rendering without crash 1`] = `
           href="#"
           onClick={[Function]}
         >
-          menu.language
+          Language
         </a>
         <div
           aria-hidden={true}
@@ -74,7 +55,7 @@ exports[`Tests for Menu component Should rendering without crash 1`] = `
             tabIndex="0"
             type="button"
           >
-            languages.english
+            English
           </button>
           <div
             className="dropdown-divider"
@@ -88,7 +69,7 @@ exports[`Tests for Menu component Should rendering without crash 1`] = `
             tabIndex="0"
             type="button"
           >
-            languages.portuguese
+            Portuguese
           </button>
         </div>
       </li>

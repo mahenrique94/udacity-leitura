@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for CommentsForm page Should rendering loading component when loading is true 1`] = `null`;
-
 exports[`Tests for CommentsForm page Should rendering null when loading is true 1`] = `null`;
 
 exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
@@ -14,6 +12,7 @@ exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
   >
     <input
       className="form-control"
+      data-cy="input-id"
       id="id"
       maxLength={999999999}
       name="id"
@@ -30,6 +29,7 @@ exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
   >
     <input
       className="form-control"
+      data-cy="input-timestamp"
       id="timestamp"
       maxLength={999999999}
       name="timestamp"
@@ -58,6 +58,7 @@ exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
         </label>
         <input
           className="is-invalid form-control"
+          data-cy="input-author"
           id="author"
           maxLength={60}
           name="author"
@@ -93,6 +94,7 @@ exports[`Tests for CommentsForm page Should rendering without crash 1`] = `
         </label>
         <textarea
           className="is-invalid form-control"
+          data-cy="input-body"
           id="body"
           maxLength={999999999}
           name="body"
