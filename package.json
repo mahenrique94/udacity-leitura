@@ -87,8 +87,8 @@
         "precommit": "yarn lint",
         "prepush": "yarn test",
         "start": "node scripts/start.js",
-        "test": "jest --config ./.jestconfig.json",
-        "test:w": "jest --config ./.jestconfig.json --watchAll"
+        "test": "jest --config ./.jestconfig.json --passWithNoTests",
+        "test:w": "jest --config ./.jestconfig.json ----passWithNoTests --watchAll"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.4",
