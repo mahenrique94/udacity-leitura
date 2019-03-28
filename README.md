@@ -1,5 +1,7 @@
 # Leitura
 
+[![Build Status](https://travis-ci.org/mahenrique94/udacity-leitura.svg?branch=master)](https://travis-ci.org/mahenrique94/udacity-leitura)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c8669396bab34faa934bfd15d2d3c603)](https://app.codacy.com/app/mahenrique94/udacity-leitura?utm_source=github.com&utm_medium=referral&utm_content=mahenrique94/udacity-leitura&utm_campaign=Badge_Grade_Dashboard)
 
 Project made to finish a second module in React Nanodregree program on Udacity.
